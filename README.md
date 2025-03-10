@@ -1,33 +1,39 @@
-# **Detailed README**
+# Task 1: Bit-level Operations on 32-bit Unsigned Integers
 
-This repository contains a set of Python scripts and functions that address four main tasks involving **bitwise operations**, **hash functions**, **SHA-256 padding**, and **prime-number computation**. Each task is described in detail below, along with references, test procedures, and example usage.
+This task implements four functions in Python to perform essential bit-level operations on 32-bit unsigned integers. These operations are widely used in cryptographic algorithms (e.g., SHA-256) and low-level data processing.
+
+## Overview
+
+The project provides implementations for:
+
+- **rotl(x, n=1)**: Left bit rotation.
+- **rotr(x, n=1)**: Right bit rotation.
+- **ch(x, y, z)**: Bitwise "choose" function.
+- **maj(x, y, z)**: Bitwise "majority" function.
+
+Each function ensures that the values are treated as 32-bit unsigned integers by applying masking with `0xffffffff` throughout the computation. Additionally, they handle rotations greater than 32 by applying modulo arithmetic.
 
 ---
 
-## **Table of Contents**
-1. [Task 1: Binary Representation (32-bit Bitwise Operations)](#task-1-binary-representation)
-   - [Introduction](#introduction-to-task-1)
-   - [Functions: `rotl`, `rotr`, `ch`, `maj`](#functions-rotl-rotr-ch-maj)
-   - [Examples and Testing](#examples-and-testing-task-1)
-   - [References](#references-for-task-1)
+## Function Descriptions
 
-2. [Task 2: Kernighan and Ritchie Hash Function](#task-2-kernighan-and-ritchie-hash-function)
-   - [Introduction](#introduction-to-task-2)
-   - [Implementation](#implementation-of-task-2)
-   - [Examples and Testing](#examples-and-testing-task-2)
-   - [References](#references-for-task-2)
+### rotl(x, n=1)
 
-3. [Task 3: SHA-256 Padding Calculation](#task-3-sha-256-padding-calculation)
-   - [Introduction](#introduction-to-task-3)
-   - [Implementation](#implementation-of-task-3)
-   - [Examples and Testing](#examples-and-testing-task-3)
-   - [References](#references-for-task-3)
+**Purpose:**  
+Rotate the bits of a 32-bit unsigned integer `x` to the left by `n` positions.
 
-4. [Task 4: Calculating the First 100 Prime Numbers](#task-4-calculating-the-first-100-prime-numbers)
-   - [Introduction](#introduction-to-task-4)
-   - [Algorithm 1: Trial Division Method](#algorithm-1-trial-division-method)
-   - [Algorithm 2: Sieve of Eratosthenes](#algorithm-2-sieve-of-eratosthenes)
-   - [Examples and Testing](#examples-and-testing-task-4)
-   - [References](#references-for-task-4)
+**Implementation Details:**
 
+1. **Masking:**  
+   - `x` is masked with `0xffffffff` to ensure it is within the 32-bit range.
+2. **Modulo Operation:**  
+   - The number of rotations `n` is reduced modulo 32 (`n %= 32`) to handle values greater than 32.
+3. **Bit Rotation:**  
+   - Shifts `x` left by `n` bits and right by `(32 - n)` bits, combining the results with bitwise OR.
+4. **Final Masking:**  
+   - The result is masked again with `0xffffffff` to guarantee a 32-bit output.
 
+**Example:**
+
+```python
+rotl(0x12345678, 4)  # Expected output: 0x23456781
