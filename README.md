@@ -112,6 +112,79 @@ These tests help confirm correctness and edge-case handling for each bitwise fun
 
 (Where the exact count of zero bytes ensures the total message + padding is 64 bytes short of the next block boundary.)
 
+---
+
+# Research and Explanations
+
+## Task 2: Kernighan and Ritchie Hash Function
+
+### 2.1 Overview (Kernighan & Ritchie Hash)
+
+Translated conceptually to Python, it processes each character of the string by:
+
+1. Multiplying the current hash by 31.  
+2. Adding the ASCII value of the current character.  
+3. Taking a modulo (e.g., 101) at the end or at each step.
+
+### 2.2 Mechanics and Rolling Hash Concept
+
+- **Rolling Hash**: Each new character updates the existing hash in a rolling fashion, making it computationally efficient for scanning data (e.g., in string matching).  
+- **Hash Range**: Taking the result modulo 101 confines the hash to values `0–100`.  
+- **Collision Probability**: Since 101 is small, collisions are relatively likely in practice. For small sets or learning examples, however, this is sufficient as a demonstration of basic hash functions.
+
+### 2.3 Test Case Descriptions (KR Hash)
+
+- **Common Words**: Testing with strings like `"hello"`, `"world"`, `"hash"`, `"function"` ensures that we observe how the hash distributes different inputs.  
+- **Consistency Check**: Verifying the same string multiple times yields the same hash value.  
+- **Empty String**: Testing an empty string ensures we handle the boundary condition properly (hash often becomes `0`).
+
+### 2.4 Research References for Task 2
+
+- **Kernighan and Ritchie's Hash Function**  
+  [CodeProject Article](https://www.codeproject.com/Articles/32829/Hash-Functions-An-Empirical-Comparison)
+
+- **General Purpose Hash Function Algorithms**  
+  [Partow.net](https://www.partow.net/programming/hashfunctions/)
+
+- **Hash Functions and Hash Tables**  
+  [Linux.IME.USP.br (PDF)](https://linux.ime.usp.br/~brelf/mac0499/monografia.pdf)
+
+
+---
+
+## Task 3: SHA256 Padding Calculation
+
+### 3.1 Overview (SHA256 Padding)
+
+In SHA-256 (and other SHA-2 variants), the message is padded to a length that is a multiple of 512 bits. The padding rules are:
+
+1. Append a single `1` bit (expressed as `0x80` in the first padding byte).  
+2. Append enough `0` bits (or bytes) so that the total length (message + padding + 8 extra bytes for length) is a multiple of 64 bytes.  
+3. Finally, append the length of the original message (in bits) as a 64-bit big-endian integer.
+
+### 3.2 Padding Steps
+
+1. **Message Length**: Compute the length of the message in bytes, then multiply by 8 to get the bit length.  
+2. **Append `0x80`**: This is the mandatory `1` bit at the start of the padding.  
+3. **Append Zeros**: The number of zero bytes depends on making the final length a multiple of 64:
+
+   \[
+   \text{zero\_bytes} 
+   = \bigl(56 - (\text{original\_length} + 1) \bmod 64 \bigr) \bmod 64
+   \]
+
+   - `+1` accounts for the `0x80` byte.  
+   - `+8` would account for the length field that must fit after the zeros.
+
+4. **Append 64-Bit Length**: The final 8 bytes encode the original message length (in bits) in big-endian order.
+
+### 3.3 Illustrative Example with `abc`
+
+- **Original message length**: 3 bytes → 24 bits.  
+- **Append `0x80`**: `80` in hex.  
+- **Append enough zeros** until the total length is `56 (mod 64)`.  
+- **Append `24` (decimal) = `0x18`** in big-endian across 8 bytes.
+
 ### 3.4 Research References for Task 3
 
 - **Hash Function**  
