@@ -149,7 +149,6 @@ Translated conceptually to Python, it processes each character of the string by:
 - **Hash Functions and Hash Tables**  
   [Linux.IME.USP.br (PDF)](https://linux.ime.usp.br/~brelf/mac0499/monografia.pdf)
 
-
 ---
 
 ## Task 3: SHA256 Padding Calculation
