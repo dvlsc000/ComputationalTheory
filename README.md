@@ -41,6 +41,8 @@ This document provides extensive research and background for each task commonly 
    6.2 [Steps and Logic](#steps-and-logic-for-task-6)  
    6.3 [Research References](#research-references-for-task-6)
 
+7. [Task 7: Turing Machines](#task-7-turing-machines)
+
 ---
 
 ## Task 1: Binary Representation
@@ -109,12 +111,7 @@ These tests help confirm correctness and edge-case handling for each bitwise fun
    [Real Python](https://realpython.com/python-bitwise-operators/)  
    [GeeksforGeeks](https://www.geeksforgeeks.org/python-bitwise-operators/)
 
-
-(Where the exact count of zero bytes ensures the total message + padding is 64 bytes short of the next block boundary.)
-
 ---
-
-# Research and Explanations
 
 ## Task 2: Kernighan and Ritchie Hash Function
 
@@ -189,15 +186,12 @@ In SHA-256 (and other SHA-2 variants), the message is padded to a length that is
 - **Hash Function**  
   [GeeksforGeeks Hash Method](https://www.geeksforgeeks.org/python-hash-method/)
 
-- **SHA-2 (Wikipedia)**  
+- **SHA-2 Explanation**  
   [SHA-2 Explanation](https://en.wikipedia.org/wiki/SHA-2)
-
 
 ---
 
 ## Task 4: Calculating the First 100 Prime Numbers
-
-This task explores two popular algorithms to find prime numbers: the **Trial Division Method** and the **Sieve of Eratosthenes**.
 
 ### 4.1 Trial Division Method
 
@@ -229,8 +223,6 @@ This task explores two popular algorithms to find prime numbers: the **Trial Div
    - Presence of known primes (e.g., `97` below 100).  
    - Absence of known composites (e.g., `99`).
 
-Both methods, when tested, should yield the same prime sets for the same ranges, with the sieve typically outperforming trial division for larger ranges.
-
 ### 4.4 Research References for Task 4
 
 - **Prime Generation (Design)**  
@@ -239,10 +231,9 @@ Both methods, when tested, should yield the same prime sets for the same ranges,
 - **Sieve of Eratosthenes**  
   [GeeksforGeeks Explanation](https://www.geeksforgeeks.org/python-program-for-sieve-of-eratosthenes/)
 
-
 ---
 
-## Task 5: Extracting 32 Bits of Fractional Parts of Square Roots
+## Task 5: Extracting 32 Bits of Fractional Parts of Square Roots for the First 100 Primes
 
 ### 5.1 Approach for Task 5
 
@@ -268,11 +259,10 @@ Both methods, when tested, should yield the same prime sets for the same ranges,
   [List of First 100 Primes](https://prime-numbers.info/list/first-100-primes)
 
 - **Square Roots in Python**  
-  [GeeksforGeeks - `math.sqrt()`](https://www.geeksforgeeks.org/python-math-function-sqrt/)
+  [GeeksforGeeks - math.sqrt()](https://www.geeksforgeeks.org/python-math-function-sqrt/)
 
 - **Extraction of Fractional Part**  
   Various discussions on Stack Overflow regarding floating-point fractional bits.
-
 
 ---
 
@@ -306,7 +296,7 @@ If your set of words is `["apple", "banana", "cat"]`, you:
   [Python Docs: hashlib](https://docs.python.org/3/library/hashlib.html)
 
 - **SHA-256 Algorithm**  
-  [Wikipedia - SHA-2](https://en.wikipedia.org/wiki/SHA-2)
+  [SHA-256 Explanation](https://en.wikipedia.org/wiki/SHA-2)
 
 - **Python `bin()` Function**  
   [Python Docs: bin()](https://docs.python.org/3/library/functions.html#bin)
@@ -314,6 +304,38 @@ If your set of words is `["apple", "banana", "cat"]`, you:
 - **String Methods**  
   - `.zfill()` and `.lstrip()`: For padding and stripping zeros in the binary representation.
 
+---
+
+## Task 7: Turing Machines
+
+### Overview
+In this task, we design a simple Turing Machine that adds 1 to a binary number written on its tape. The machine starts at the left-most non-blank symbol and treats the right-most symbol as the least significant bit (LSB). The Turing Machine simulates the binary addition (increment) process as follows:
+
+1. **Traverse to the LSB:**  
+   The machine moves right until it reaches the right-most digit of the binary number.
+
+2. **Addition Operation:**  
+   - If the current (LSB) symbol is `0`, it is replaced with `1` and the machine halts (no carry is needed).  
+   - If the symbol is `1`, it is changed to `0` (indicating a carry), and the machine moves one cell to the left to continue processing the carry.  
+   - If the carry propagates past the left-most digit, the machine prepends a `1` to the tape.
+
+3. **Halting:**  
+   The machine halts after the addition is complete and the tape now reflects the incremented binary number.
+
+#### Example
+- **Input Tape:** `100111`  
+- **Expected Output Tape:** `101000`
+
+### References
+1. **Turing's Original Paper:**  
+   Turing, A. M. (1936). *On Computable Numbers, with an Application to the Entscheidungsproblem*.  
+   [PDF available here](https://www.dcs.gla.ac.uk/~pat/algorithms/book/turing.pdf)
+
+2. **GeeksforGeeks – Turing Machine Introduction:**  
+   [Turing Machine – Introduction](https://www.geeksforgeeks.org/turing-machine-introduction/)
+
+3. **Tutorials Point – Turing Machine:**  
+   [Turing Machine Explanation](https://www.tutorialspoint.com/automata_theory/turing_machine.htm)
 
 ---
 
@@ -325,6 +347,5 @@ Each task demonstrates a fundamental concept:
 - **Hash Functions** (K&R, SHA256) highlight practical hashing approaches and padding requirements.  
 - **Prime Generation** explores computational complexity trade-offs between naive (Trial Division) and efficient (Sieve of Eratosthenes) methods.  
 - **Fractional Bits Extraction** connects number theory (prime numbers) with floating-point manipulations (square roots), often used in cryptographic constants.  
-- **Leading Zero Analysis** underscores how hash values can be ordered and how certain words might yield smaller (leading zeros) numerical hashes.
-
-
+- **Leading Zero Analysis** underscores how hash values can be ordered and how certain words might yield smaller (leading zeros) numerical hashes.  
+- **Turing Machines** illustrate fundamental concepts in computability and machine simulation with a simple, yet effective, binary addition example.
