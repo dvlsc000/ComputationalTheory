@@ -70,6 +70,20 @@ When dealing with 32-bit integers:
 
 ---
 
+### 1.3 Bitwise Majority (maj)
+
+The bitwise majority function selects each output bit based on the majority value of the corresponding bits in three input integers. For each bit position:
+
+- If at least two out of the three bits (from `x`, `y`, and `z`) are 1, the result bit is 1.
+- Otherwise, the result bit is 0.
+
+This operation is commonly used in cryptographic algorithms such as SHA-256, where it contributes to the diffusion and mixing of state values.
+
+**Mathematical Expression:**
+maj(x, y, z) = (x AND y) OR (x AND z) OR (y AND z)
+
+---
+
 ### 1.2 Bitwise Choose (`ch`)
 
 The **bitwise choose** operation (often seen in SHA-256) selects bits from two operands based on the bit pattern of a third operand:
