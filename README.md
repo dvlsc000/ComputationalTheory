@@ -143,6 +143,7 @@ Translated conceptually to Python, it processes each character of the string by:
 - **Hash Range**: Taking the result modulo 101 confines the hash to values `0–100`.  
 - **Collision Probability**: Since 101 is small, collisions are relatively likely in practice. For small sets or learning examples, however, this is sufficient as a demonstration of basic hash functions.
 
+
 ### 2.3 Test Case Descriptions (KR Hash)
 
 - **Common Words**: Testing with strings like `"hello"`, `"world"`, `"hash"`, `"function"` ensures that we observe how the hash distributes different inputs.  
