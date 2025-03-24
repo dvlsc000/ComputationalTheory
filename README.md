@@ -92,7 +92,7 @@ The **bitwise choose** operation (often seen in SHA-256) selects bits from two o
   - If the corresponding bit in `x` is `1`, take the bit from `y`.
   - If it is `0`, take the bit from `z`.
 
-Mathematically, this can be expressed as:
+**Mathematical Expression:**
 maj(x, y, z) = (x AND y) OR (x AND z) OR (y AND z)
 
 ### 1.4 Test Case Descriptions for Task 1
