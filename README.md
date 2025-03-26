@@ -137,6 +137,7 @@ Translated conceptually to Python, it processes each character of the string by:
 2. Adding the ASCII value of the current character.  
 3. Taking a modulo (e.g., 101) at the end or at each step.
 
+
 ### 2.2 Mechanics and Rolling Hash Concept
 
 - **Rolling Hash**: Each new character updates the existing hash in a rolling fashion, making it computationally efficient for scanning data (e.g., in string matching).  
