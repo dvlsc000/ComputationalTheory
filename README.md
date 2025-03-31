@@ -365,3 +365,4 @@ Each task demonstrates a fundamental concept:
 - **Fractional Bits Extraction** connects number theory (prime numbers) with floating-point manipulations (square roots), often used in cryptographic constants.  
 - **Leading Zero Analysis** underscores how hash values can be ordered and how certain words might yield smaller (leading zeros) numerical hashes.  
 - **Turing Machines** illustrate fundamental concepts in computability and machine simulation with a simple, yet effective, binary addition example.
+
