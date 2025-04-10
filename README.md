@@ -1,4 +1,4 @@
-# In-Depth Research and Explanations
+# Research and Explanations
 
 This document provides extensive research and background for each task commonly encountered when working with low-level bit operations, cryptographic hash functions, prime number generation, fractional extraction of square roots, and analysis of leading zero bits in SHA-256 hashes.
 
