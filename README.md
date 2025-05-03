@@ -43,6 +43,8 @@ This document provides extensive research and background for each task commonly 
 
 7. [Task 7: Turing Machines](#task-7-turing-machines)
 
+8. [Task 8: Computational Complexity – Bubble Sort Comparisons](#task-8-computational-complexity--bubble-sort-comparisons)
+
 ---
 
 ## Task 1: Binary Representation
