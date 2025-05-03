@@ -378,6 +378,7 @@ This provides insight into how the number of comparisons varies depending on the
 ```python
 Permutation: (1, 2, 3, 4, 5) -> Comparisons: 10
 Permutation: (5, 4, 3, 2, 1) -> Comparisons: 10
+```
 
 ### References
 1. **GeeksforGeeks:**  
