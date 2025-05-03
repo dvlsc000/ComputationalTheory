@@ -355,6 +355,38 @@ In this task, we design a simple Turing Machine that adds 1 to a binary number w
 
 ---
 
+## Task 8: Computational Complexity – Bubble Sort Comparisons
+
+### Overview
+
+This task analyzes the computational complexity of the Bubble Sort algorithm by examining the number of comparisons required to sort permutations of a given list. Specifically:
+
+- **Input**: All permutations of the list `[1, 2, 3, 4, 5]`
+- **Operation**: Use a modified Bubble Sort that counts the number of comparisons made while sorting
+- **Output**: For each permutation, print the permutation and the corresponding number of comparisons
+
+This provides insight into how the number of comparisons varies depending on the order of elements.
+
+### Key Concepts
+
+- **Bubble Sort** compares adjacent elements and swaps them if they are out of order.
+- The number of comparisons in Bubble Sort for a list of size `n` is up to `n(n-1)/2`.
+- However, the actual number of comparisons can be influenced by early stopping (if implemented) or list order.
+
+### Example
+
+```python
+Permutation: (1, 2, 3, 4, 5) -> Comparisons: 10
+Permutation: (5, 4, 3, 2, 1) -> Comparisons: 10
+
+### References
+1. **GeeksforGeeks:**  
+   [Bubble Sort](https://www.geeksforgeeks.org/bubble-sort/)
+
+2. **Python Docs:**  
+   [Premutations](https://docs.python.org/3/library/itertools.html#itertools.permutations)
+
+
 ## Final Notes
 
 Each task demonstrates a fundamental concept:
